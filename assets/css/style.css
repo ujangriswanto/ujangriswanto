@@ -81,6 +81,7 @@ a:hover {
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
+  background-image: url(assets/img/banner.jpg)
 }
 
 @media (max-width: 1024px) {
@@ -722,6 +723,10 @@ a:hover {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+.about-mf, .skills-mf {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
 .about-mf .box-shadow-full {
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -733,6 +738,12 @@ a:hover {
 
 .about-mf .about-img img {
   margin-left: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-mf .about-img img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(37,117,252,0.18);
 }
 
 @media (min-width: 767px) {
@@ -762,17 +773,37 @@ a:hover {
 # Services
 --------------------------------------------------------------*/
 .service-box {
-  background-color: #fff;
-  padding: 2.5rem 1.3rem;
-  border-radius: 1rem;
-  margin-bottom: 3rem;
+  background: #f8faff;
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(37,117,252,0.08);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.service-box:hover {
+  box-shadow: 0 16px 32px rgba(106,17,203,0.15);
+  transform: translateY(-8px) scale(1.04);
 }
 
 .service-box:hover .ico-circle {
-  transition: all 500ms ease;
-  color: #fff;
-  background-color: #0078ff;
-  box-shadow: 0 0 0 10px #cde1f8;
+  background: linear-gradient(135deg,#ff6f00 0%,#6a11cb 100%);
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.service-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeServiceUp 0.8s forwards;
+}
+
+.service-animate:nth-child(1) { animation-delay: 0.1s; }
+.service-animate:nth-child(2) { animation-delay: 0.2s; }
+.service-animate:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeServiceUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .service-box .service-ico {
@@ -781,19 +812,28 @@ a:hover {
 }
 
 .service-box .ico-circle {
-  transition: all 500ms ease;
-  font-size: 4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg,#2575fc 0%,#6a11cb 100%);
+  color: #fff;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  box-shadow: 0 4px 16px rgba(37,117,252,0.12);
+  margin-bottom: 8px;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .service-box .s-title {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  text-align: center;
-  padding: .4rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .service-box .s-description {
-  color: #4e4e4e;
+  font-size: 1.05rem;
+  color: #444;
 }
 
 /*--------------------------------------------------------------
@@ -1373,4 +1413,141 @@ footer .credits {
 
 footer .credits a {
   color: #fff;
+}
+
+/* Gradient untuk Intro Section */
+.intro.route.bg-image {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%), url('../img/banner.jpg');
+  background-blend-mode: multiply;
+}
+
+/* Animasi Navbar Brand */
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2575fc !important;
+  transition: transform 0.3s;
+}
+.navbar-brand:hover {
+  transform: scale(1.1) rotate(-3deg);
+  color: #6a11cb !important;
+}
+
+/* Service Box Shadow & Hover */
+.service-box {
+  box-shadow: 0 8px 24px rgba(106,17,203,0.08);
+  transition: box-shadow 0.3s, transform 0.3s;
+  border-radius: 16px;
+  background: #fff;
+}
+.service-box:hover {
+  box-shadow: 0 16px 32px rgba(37,117,252,0.15);
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Skill Bar Warna */
+.progress-bar {
+  background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+}
+
+/* Social Icon Animasi */
+.socials .ico-circle {
+  transition: background 0.3s, transform 0.3s;
+}
+.socials .ico-circle:hover {
+  background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+  transform: scale(1.2) rotate(8deg);
+}
+
+/* Card style for About & Skill */
+.card {
+  border-radius: 18px;
+  box-shadow: 0 6px 24px rgba(37,117,252,0.08);
+  background: #fff;
+}
+.card-title {
+  font-weight: bold;
+  color: #2575fc;
+  letter-spacing: 1px;
+}
+.skill-item .skill-icon {
+  margin-bottom: 6px;
+}
+.skill-item .skill-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.progress-bar.bg-gradient {
+  background: linear-gradient(90deg,#2575fc 0%,#6a11cb 100%);
+}
+.skill-item small {
+  display: block;
+  margin-top: 4px;
+}
+@media (max-width: 767px) {
+  .card { margin-bottom: 16px; }
+}
+
+/* Gradient overlay tanpa blur */
+.gradient-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(37,117,252,0.7) 0%, rgba(106,17,203,0.7) 100%);
+  z-index: 2;
+}
+.overlay-itro {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1;
+}
+.intro-content {
+  position: relative;
+  z-index: 3;
+}
+
+.card-body ul {
+  padding-left: 0;
+  margin-bottom: 12px;
+}
+.card-body ul li {
+  margin-bottom: 4px;
+}
+
+/* Card lebar 3/4 layar */
+@media (min-width: 992px) {
+  .col-lg-9 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+}
+@media (max-width: 991px) {
+  #about .card .row > div {
+    margin-bottom: 24px;
+  }
+  #about .card .row {
+    flex-direction: column !important;
+    text-align: center;
+  }
+  #about .col-md-8, #about .col-md-4 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+#about .card {
+  background: #f8faff;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(37,117,252,0.08);
+}
+#about .badge-primary {
+  background: linear-gradient(90deg,#2575fc 0%,#6a11cb 100%);
+  border-radius: 16px;
+  font-weight: 600;
+}
+#about .about-img-animate {
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.3s;
+}
+#about .about-img-animate:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 8px 32px rgba(37,117,252,0.18);
 }
